@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  # auth-service:
+  #   build: ./auth-service
+  #   ports:
+  #     - 9090:8080
+  
+  auth-db:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    ports:
+      - 27017:27017
+    volumes:
+      - ./auth-db:/docker-entrypoint-initdb.d
