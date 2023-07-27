@@ -19,7 +19,7 @@ fn main() -> std::io::Result<()> {
 }
 
 fn create_privileges(privileges: Privileges, generator: impl Generator) -> std::io::Result<()> {
-    let path = "./src/privileges";
+    let path = "../privileges";
     let filename = "mod.rs";
     let _dir = std::fs::create_dir_all(&path);
     let mut file = std::fs::File::create(format!("{path}/{filename}"))?;
