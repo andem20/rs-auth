@@ -85,24 +85,3 @@ fn create_deserializer(file: &mut std::fs::File, resource: &String, privileges_l
     let _ = file.write(b"\t}\n");
     let _ = file.write(b"}\n");
 }
-
-pub enum Users {
-	Create,
-	Read,
-	Update,
-	Delete,
-}
-
-impl std::str::FromStr for Users {
-    type Err = ();
-
-    fn from_str(input: &str) -> Result<Self, Self::Err> {
-        match input {
-            "users:create" => Ok(Users::Create),
-            "users:read" => Ok(Users::Read),
-            "users:update" => Ok(Users::Update),
-            "users:delete" => Ok(Users::Delete),
-            _ => Err(()),
-        }
-    }
-}
