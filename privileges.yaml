@@ -1,0 +1,16 @@
+default:
+    - create
+    - read
+    - update
+    - delete
+
+resources:
+    users:
+        - default
+
+    posts:
+        - default
+
+    robots:
+        - default
+        - pilot
