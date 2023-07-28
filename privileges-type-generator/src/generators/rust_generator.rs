@@ -1,10 +1,10 @@
-use std::io::Write;
+use std::{io::Write, fs::File};
 
-use crate::util::{string_util, file_util};
+use crate::{util::{string_util, file_util}, structs::Privileges};
 
 pub struct RustGenerator {}
 
-impl super::Generator for RustGenerator {
+impl RustGenerator {
     fn create_enum(&self, file: &mut std::fs::File, resource: &String, privileges_list: &Vec<String>) {
         let resource_cap = string_util::capitalize(resource);
         let _ = file.write(b"#[derive(Debug)]\n");
@@ -34,5 +34,16 @@ impl super::Generator for RustGenerator {
         let _ = file.write(b"\t\t}\n");
         let _ = file.write(b"\t}\n");
         let _ = file.write(b"}\n");
+    }
+}
+
+impl super::Generator for RustGenerator {
+    fn generate_resource_privileges(&self, file: &mut File, resource: &String, privileges_list: &Vec<String>) {
+        self.create_enum(file, resource, privileges_list);
+        self.create_deserializer(file, resource, privileges_list);
+    }
+
+    fn get_filename(&self) -> &str {
+        "mod.rs"
     }
 }
