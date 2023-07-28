@@ -1,11 +1,11 @@
 use std::collections::HashMap;
 
-use serde::{Serialize, Deserialize};
+use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Privileges {
     pub default: Vec<String>,
-    pub resources: HashMap<String, Vec<String>>
+    pub resources: HashMap<String, Vec<String>>,
 }
 
 impl Privileges {

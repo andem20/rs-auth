@@ -14,7 +14,7 @@ impl FromStr for Language {
             "rust" => Ok(Language::Rust),
             "typescript" => Ok(Language::TypeScript),
             "java" => Ok(Language::Java),
-            _ => Err(())
+            _ => Err(()),
         }
     }
 }

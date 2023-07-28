@@ -1,0 +1,12 @@
+#[derive(Debug)]
+pub enum %resource% {
+%resource_values%}
+
+impl std::str::FromStr for %resource% {
+	type Err = ();
+	fn from_str(input: &str) -> Result<Self, Self::Err> {
+		match input {
+%entries%			_ => Err(()),
+		}
+	}
+}

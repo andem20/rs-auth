@@ -1,0 +1,2 @@
+enum %resource% {
+%resource_values%}
