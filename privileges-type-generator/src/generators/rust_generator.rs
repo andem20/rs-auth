@@ -1,4 +1,4 @@
-use std::{io::{Write, Read}, fs::File};
+use std::{io::Write, fs::File};
 
 use crate::{util::string_util, constants::template_constants::{RESOURCE_WILDCARD, RESOURCE_VALUES_WILDCARD, ENTRIES_WILDCARD}};
 
@@ -8,10 +8,7 @@ impl super::Generator for RustGenerator {
     fn generate_resource_privileges(&self, file: &mut File, resource: &String, privileges_list: &Vec<String>) {
         let resource_cap = string_util::capitalize(resource);
 
-        let mut template_file = std::fs::File::open("./templates/rust.rs.template").expect("Template file does not exist.");
-        let mut template_string = String::new();
-        let _ = template_file.read_to_string(&mut template_string);
-
+        let template_string = self.load_template_file("./templates/rust.rs.template");
         let template_string = template_string.replace(&RESOURCE_WILDCARD, &resource_cap);
 
         let mut entries = String::new();
