@@ -1,0 +1,21 @@
+{
+  "usesTypeScript": true,
+  "usesStyledComponents": true,
+  "testLibrary": "Testing Library",
+  "component": {
+    "default": {
+      "path": "src/components",
+      "withStyle": false,
+      "withTest": true,
+      "withStory": false,
+      "withLazy": true
+    },
+    "page": {
+      "path": "src/pages",
+      "withLazy": true,
+      "withStory": false,
+      "withStyle": false,
+      "withTest": true
+    }
+  }
+}
